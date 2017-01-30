@@ -15,14 +15,14 @@ shinyServer(function(input, output) {
       return(tmpData$winrate)
    })
    
-   # winPostReroll = reactive({
-   #    tmpData = winrates[(champName %notin% champsUnion()), ]
-   #    tmpData[, winGain := winrate - currWinrate()]
-   #    
-   #    tmp.t = t.test(x = tmpData$winGain, alternative = "greater")  # Want the reroll to increase winrate
-   #    
-   #    return(tmp.t)
-   # })
+   winPostReroll = reactive({
+      tmpData = winrates[(champName %notin% champsUnion()), ]
+      tmpData[, winGain := winrate - currWinrate()]
+
+      tmp.t = t.test(x = tmpData$winGain, alternative = "greater")  # Want the reroll to increase winrate
+
+      return(tmp.t)
+   })
    
    # Parse the results of a t-test into a viewer friendly string
    # (to work with 'cat')
@@ -34,10 +34,10 @@ shinyServer(function(input, output) {
                    decision, "\n")
    })
    
-   # output$mainResults = renderText({
-   #    input$goButton
-   #    isolate(parseResults())
-   # })
-   
-   output$mainResults = renderText({"ayyLmao"})
+   output$mainResults = renderText({
+      input$goButton
+      isolate(parseResults())
+   })
+
+   # output$mainResults = renderText({"ayyLmao"})
 })
