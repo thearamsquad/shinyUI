@@ -10,11 +10,14 @@ if (!require('devtools'))
    install.packages('devtools')
 if (!require('shinysky'))
    devtools::install_github("AnalytixWare/ShinySky")
+if (!require('DT'))
+   install.packages('DT')
 
 library('data.table')
 library('shiny')
 library('stringr')
 library('shinysky')  # Install by running   devtools::install_github("AnalytixWare/ShinySky")
+library('DT')
 
 `%notin%` = function(x, y) {
    return(!(x %in% y))
